@@ -7,6 +7,25 @@
 
 require( ABSPATH . WPINC . '/option.php' );
 
+add_action( 'init', 'my_add_kakao_provider_to_wsl' );
+
+function my_add_kakao_provider_to_wsl() {
+
+	//if ( function_exists ('wsl_version') ) {
+
+		global $WORDPRESS_SOCIAL_LOGIN_PROVIDERS_CONFIG;
+
+		$WORDPRESS_SOCIAL_LOGIN_PROVIDERS_CONFIG[] = ARRAY (
+			"provider_id"	=> "Kakao",
+			"provider_name"	=> "Kakao",
+			"require_client_id"	=> true,
+			"callback"	=> true,
+			"new_app_link"	=> "https://developers.kakao.com/apps/new",
+			"cat"	=> "socialnetworks",
+		);
+	//}
+}
+
 /**
  * Convert given date string into a different format.
  *

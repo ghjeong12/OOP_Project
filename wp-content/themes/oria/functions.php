@@ -245,6 +245,54 @@ function oria_sidebar_mode() {
     }
 }
 
+/* Added by JH */
+add_action( 'init', 'db_test_jh' );
+
+function db_test_jh()
+{
+	/*global $wpdb;
+	$result = $wpdb->get_results("select wp_title from wp_posts");
+	foreach ($result as $row)
+	{
+		echo 'wp_title' .$row->wp_title;
+	}*/
+	if ( function_exists ('wsl_version') ) {
+
+        global $WORDPRESS_SOCIAL_LOGIN_PROVIDERS_CONFIG;
+
+        $WORDPRESS_SOCIAL_LOGIN_PROVIDERS_CONFIG[] = ARRAY(
+            "provider_id"       => "Kakao",
+            "provider_name"     => "Kakao",
+            "require_client_id" => true,
+            "callback"          => true,
+            "new_app_link"      => "https://developers.kakao.com/apps/new",
+            "cat"               => "socialnetworks",
+        );
+    }
+
+}
+
+//add_action( 'init', 'my_add_kakao_provider_to_wsl' );
+/*
+function my_add_kakao_provider_to_wsl() {
+	echo 'shit';
+    //if ( function_exists ('wsl_version') ) {
+
+        global $WORDPRESS_SOCIAL_LOGIN_PROVIDERS_CONFIG;
+
+        $WORDPRESS_SOCIAL_LOGIN_PROVIDERS_CONFIG[] = ARRAY(
+            "provider_id"       => "Kakao",
+            "provider_name"     => "Kakao",
+            "require_client_id" => true,
+            "callback"          => true,
+            "new_app_link"      => "https://developers.kakao.com/apps/new",
+            "cat"               => "socialnetworks",
+        );
+    //}
+}*/
+
+//add_action( 'init', 'my_add_kakao_provider_to_wsl' );
+
 /**
  * Implement the Custom Header feature.
  */
