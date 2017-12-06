@@ -87,6 +87,14 @@ function permalink_anchor( $mode = 'id' ) {
 			break;
 	}
 }
+//new function
+function edit_post_link_js($link, $before, $after, $id, $class){
+	$author_id = get_the_author_meta('ID');
+  $current_user_id = get_current_user_id();
+  if ( is_user_logged_in() && $author_id == $current_user_id ) {
+       edit_post_link('EDIT', '<span>', '</span>');
+  }
+}
 
 /**
  * Retrieves the full permalink for the current post or post ID.

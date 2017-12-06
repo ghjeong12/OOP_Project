@@ -71,13 +71,13 @@ else :
 		<?php } if ($usp_options['usp_title'] == 'show' || $usp_options['usp_title'] == 'optn') { ?>
 		
 		<fieldset class="usp-title">
-			<label for="user-submitted-title"><?php esc_html_e('Post Title', 'usp'); ?></label>
+			<label for="user-submitted-title"><p><?php esc_html_e('Post Title', 'usp'); ?></p></label>
 			<input id="user-submitted-title" name="user-submitted-title" type="text" value="" placeholder="<?php esc_attr_e('Post Title', 'usp'); ?>"<?php if (usp_check_required('usp_title')) echo $usp_required; ?> class="usp-input">
 		</fieldset>
 		<?php } if ($usp_options['usp_tags'] == 'show' || $usp_options['usp_tags'] == 'optn') { ?>
 		
 		<fieldset class="usp-tags">
-			<label for="user-submitted-tags"><?php esc_html_e('Post Tags', 'usp'); ?></label>
+			<label for="user-submitted-tags"><p><?php esc_html_e('Post Tags', 'usp'); ?></p></label>
 			<input id="user-submitted-tags" name="user-submitted-tags" type="text" value="" placeholder="<?php esc_attr_e('Post Tags', 'usp'); ?>"<?php if (usp_check_required('usp_tags')) echo $usp_required; ?> class="usp-input">
 		</fieldset>
 		<?php } if ($usp_options['custom_field'] == 'show' || $usp_options['custom_field'] == 'optn') { ?>
@@ -95,8 +95,8 @@ else :
 		<?php } if (($usp_options['usp_category'] == 'show' || $usp_options['usp_category'] == 'optn') && ($usp_options['usp_use_cat'] == false)) { ?>
 		
 		<fieldset class="usp-category">
-			<label for="user-submitted-category"><?php esc_html_e('Post Category', 'usp'); ?></label>
-			<select id="user-submitted-category" name="user-submitted-category"<?php if (usp_check_required('usp_category')) echo $usp_required; ?> class="usp-select">
+			<label for="user-submitted-category"><p><?php esc_html_e('Post Category', 'usp'); ?></p></label>
+			<select class="form-control" id="user-submitted-category" name="user-submitted-category"<?php if (usp_check_required('usp_category')) echo $usp_required; ?> class="usp-select">
 				<option value=""><?php esc_html_e('Please select a category..', 'usp'); ?></option>
 				<?php foreach($usp_options['categories'] as $categoryId) { $category = get_category($categoryId); if (!$category) { continue; } ?>
 				
@@ -132,7 +132,7 @@ else :
 			</div>
 			<?php } else { ?>
 				
-			<label for="user-submitted-content"><?php esc_html_e('Post Content', 'usp'); ?></label>
+			<label for="user-submitted-content"><p><?php esc_html_e('Post Content', 'usp'); ?></p></label>
 			<textarea id="user-submitted-content" name="user-submitted-content" rows="5" placeholder="<?php esc_attr_e('Post Content', 'usp'); ?>"<?php if (usp_check_required('usp_content')) echo $usp_required; ?> class="usp-textarea"></textarea>
 			<?php } ?>
 			
@@ -160,12 +160,12 @@ else :
 			if ($usp_minImages > 0) : ?>
 				<?php for ($i = 0; $i < $usp_minImages; $i++) : ?>
 						
-				<input name="user-submitted-image[]" type="file" size="25"<?php echo $usp_required; ?> class="usp-input usp-clone">
+				<input name="user-submitted-image[]" type="file" size="25"<?php echo $usp_required; ?> class="usp-input usp-clone form-control">
 				<?php endfor; ?>
 				<?php if ($usp_minImages < $usp_maxImages) : echo $usp_addAnother; endif; ?>
 			<?php else : ?>
 				
-				<input name="user-submitted-image[]" type="file" size="25" class="usp-input usp-clone" data-parsley-excluded="true">
+				<input name="user-submitted-image[]" type="file" size="25" class="usp-input usp-clone form-control" data-parsley-excluded="true">
 				<?php echo $usp_addAnother; ?>
 			<?php endif; ?>
 				
@@ -195,13 +195,14 @@ else :
 			<input type="hidden" class="usp-hidden" name="user-submitted-url" value="<?php echo $usp_user_url; ?>">
 			<?php } ?>
 			<?php if ($usp_options['usp_use_cat'] == true) { ?>
-			
-			<input type="hidden" class="usp-hidden" name="user-submitted-category" value="<?php echo $usp_options['usp_use_cat_id']; ?>">
+			<div class="input-group">	
+			<input type="hidden" class="usp-hidden form-control" name="user-submitted-category" value="<?php echo $usp_options['usp_use_cat_id']; ?>">
+			</div>
 			<?php } ?>
 			
 			<input type="submit" class="usp-submit" id="user-submitted-post" name="user-submitted-post" value="<?php esc_attr_e('Submit Post', 'usp'); ?>">
 			<?php wp_nonce_field('usp-nonce', 'usp-nonce', false); ?>
-			
+			<!--<input type="datetime"  id="datepicker" />	-->			
 		</div>
 		<?php endif; ?>
 

@@ -356,7 +356,9 @@ class Walker_Comment extends Walker {
 				</footer><!-- .comment-meta -->
 
 				<div class="comment-content">
-					<?php comment_text(); ?>
+          <?php comment_text(); ?>
+          <?php WPEditableComments::edit(Edit); ?> 
+          <?php WPEditableComments::delete(Delete); ?> 
 				</div><!-- .comment-content -->
 
 				<?php

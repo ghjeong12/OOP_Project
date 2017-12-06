@@ -47,8 +47,8 @@ function oria_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	add_image_size('oria-carousel', 390, 260, true);
-	add_image_size('oria-small-thumb', 520);
-	add_image_size('oria-large-thumb', 740);
+	add_image_size('oria-small-thumb', 300);
+	add_image_size('oria-large-thumb', 400);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -209,13 +209,24 @@ add_filter('body_class', 'oria_fullwidth_singles');
  */
 
 function oria_footer_credits() {
-	echo '<a href="' . esc_url( __( 'http://wordpress.org/', 'oria' ) ) . '">';
-		printf( __( 'Proudly powered by %s', 'oria' ), 'WordPress' );
-	echo '</a>';
-	echo '<span class="sep"> | </span>';
-	printf( __( 'Theme: %2$s by %1$s.', 'oria' ), 'FlyFreeMedia', '<a href="http://flyfreemedia.com/themes/oria" rel="designer">Oria</a>' );
+	//echo '<a href="' . esc_url( __( 'http://wordpress.org/', 'oria' ) ) . '">';
+	//	printf( __( 'Proudly powered by %s', 'oria' ), 'WordPress' );
+	//echo '</a>';
+	//echo '<span class="sep"> | </span>';
+	//printf( __( 'Theme: %2$s by %1$s.', 'oria' ), 'FlyFreeMedia', '<a href="http://flyfreemedia.com/themes/oria" rel="designer">Oria</a>' );
 }
 add_action( 'oria_footer', 'oria_footer_credits' );
+
+function oop_footer() {
+	//echo '<a href="' . esc_url( __( 'http://wordpress.org/', 'oria' ) ) . '">';
+		printf('Developed by POSTECH OOP Team 4, Fall 2017.');
+	//echo '</a>';
+	//echo '<span class="sep"> | </span>';
+	//printf( __( 'Theme: %2$s by %1$s.', 'oria' ), 'FlyFreeMedia', '<a href="http://flyfreemedia.com/themes/oria" rel="designer">Oria</a>' );
+}
+add_action( 'oria_footer', 'oop_footer' );
+
+
 
 /**
  * Change the excerpt length

@@ -98,7 +98,7 @@ else :
 			<input id="user-submitted-captcha" name="user-submitted-captcha" type="text" value="" placeholder="<?php esc_attr_e('Antispam Question', 'usp'); ?>"<?php echo $usp_required; ?> class="usp-input<?php echo $usp_captcha; ?>" data-parsley-excluded="true">
 		</fieldset>
 		<?php } if (($usp_options['usp_category'] == 'show' || $usp_options['usp_category'] == 'optn') && ($usp_options['usp_use_cat'] == false)) { ?>
-		
+		<div class="input-group">	
 		<fieldset class="usp-category">
 			<label for="user-submitted-category"><?php esc_html_e('Post Category', 'usp'); ?></label>
 			<select id="user-submitted-category" name="user-submitted-category"<?php if (usp_check_required('usp_category')) echo $usp_required; ?> class="usp-select">
@@ -110,6 +110,7 @@ else :
 				
 			</select>
 		</fieldset>
+		</div>
 		<?php } if ($usp_options['usp_content'] == 'show' || $usp_options['usp_content'] == 'optn') { ?>
 		
 		<fieldset class="usp-content">

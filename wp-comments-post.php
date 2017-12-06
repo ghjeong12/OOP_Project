@@ -4,6 +4,10 @@
  *
  * @package WordPress
  */
+//if(class_exits('WPEditableComments')){WPEditableComments::edit('Edit');}
+//if ( class_exists( ‘WPEditableComments’ ) ) { WPEditableComments::delete(‘Delete’); } 
+
+
 
 if ( 'POST' != $_SERVER['REQUEST_METHOD'] ) {
 	$protocol = $_SERVER['SERVER_PROTOCOL'];
