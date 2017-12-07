@@ -46,7 +46,7 @@ function oria_setup() {
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
-	add_image_size('oria-carousel', 390, 260, true);
+	add_image_size('oria-carousel', 390, 230, true);
 	add_image_size('oria-small-thumb', 300);
 	add_image_size('oria-large-thumb', 400);
 
